@@ -1,0 +1,43 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints
+
+# Virtual environment
+venv/
+env/
+
+# Model files
+*.pkl
+*.joblib
+
+# VSCode settings
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+*.log
+
+# Environment and configuration
+.env
+*.env
+
+# PyInstaller
+*.spec
+
+# Data files (optional - if generated)
+phishing.csv
+
+# Compiled files
+*.o
+*.out
