@@ -15,7 +15,6 @@ venv/
 env/
 
 # Model files
-*.pkl
 *.joblib
 
 # VSCode settings
@@ -38,4 +37,4 @@ Thumbs.db
 
 # Compiled files
 *.o
-*.out
+*.out   
