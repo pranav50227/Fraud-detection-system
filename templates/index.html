@@ -2,88 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This website is develop for identify the safety of url.">
-    <meta name="keywords" content="phishing url,phishing,cyber security,machine learning,classifier,python">
-    <meta name="author" content="VAIBHAV BICHAVE">
+    <meta name="description" content="This website is developed to identify the safety of URLs.">
+    <meta name="keywords" content="phishing url, phishing, cyber security, machine learning, classifier, python">
+    <meta name="author" content="VAIBHAV BICHAVE, UTKARSH, PRIYANSH">
 
-    <!-- BootStrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        
-    <link href="static/styles.css" rel="stylesheet">
-    <title>URL detection</title>
-    
+    <title>URL Detection | Fraud Checker</title>
+
+    <!-- Bootstrap & Fonts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+
+        .card {
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+        }
+
+        .btn-custom {
+            border-radius: 0.5rem;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        #prediction {
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    
-<div class=" container">
-    <div class="row">
-        <div class="form col-md" id="form1">
-            <h2>PHISHING URL DETECTION</h2>
-    
-            <br>
-            <form action="/" method ="post">
-                <input type="text" class="form__input" name ='url' id="url" placeholder="Enter URL" required="" />
-                <label for="url" class="form__label">URL</label>
-                <button class="button" role="button" >Check here</button>
+    <div class="container">
+        <div class="text-center">
+            <h2>FRAUD-DETECTION-SYSTEM ( url detection )</h2>
+            <p class="lead">Check the safety of any URL using Machine Learning</p>
+        </div>
+
+        <div class="card p-4">
+            <form action="/" method="POST">
+                <div class="form-group">
+                    <label for="url">Enter URL</label>
+                    <input type="text" class="form-control" name="url" id="url" placeholder="https://example.com" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Check URL</button>
             </form>
-           
+        </div>
+
+        <div class="card p-4 mt-4">
+            <h5>Scanned URL:</h5>
+            <p><a href="{{ url }}" target="_blank">{{ url }}</a></p>
+
+            <h4 id="prediction" class="text-info"></h4>
+
+            <div class="mt-3">
+                <button class="btn btn-outline-success btn-outline" id="button1" onclick="window.open('{{ url }}')" target="_blank">Continue</button>
+                <button class="btn btn-outline-danger btn-outline" id="button2" onclick="window.open('{{ url }}')" target="_blank">Still want to continue?</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>©2025 Pranav • Shreyansh • Utkarsh • Priyansh</p>
+        </div>
     </div>
-    
-    <div class="col-md" id="form2">
-        
-        <br>
-  <h6 class="right"><a href="{{ url }}" target="_blank">{{ url }}</a>
-</h6>
 
-           
-        <br>
-        <h3 id="prediction"></h3>
-        <button class="button2" id="button2" role="button" onclick="window.open('{{url}}')" target="_blank" >Still want to Continue</button>
-        <button class="button1" id="button1" role="button"  onclick="window.open('{{url}}')" target="_blank">Continue</button>
-    </div> 
-</div>
-<br>
-<p>©2025 PRANAV X SHREYANSH</p>
-</div>
-
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-
-    
+    <!-- JS Scripts -->
     <script>
-        
-            let x = '{{xx}}';
-            let num = x*100;
-            if (0<=x && x<0.50){
-                num = 100-num;
-            }
-            let txtx = num.toString();
-            if(x<=1 && x>=0.50){
-                var label = "Website is "+txtx +"% unsafe to use...";
-                document.getElementById("prediction").innerHTML = label;
-                document.getElementById("button2").style.display="block";
-            }
-            else if (0<=x && x<0.50){
-                var label = "Website is "+txtx +"% safe to use..."
-                document.getElementById("prediction").innerHTML = label ;
-                document.getElementById("button1").style.display="block";
-            }
-        
+        let x = '{{xx}}';
+        let num = x * 100;
+        if (0 <= x && x < 0.50) {
+            num = 100 - num;
+        }
+        let txtx = num.toFixed(2);
+
+        if (x <= 1 && x >= 0.50) {
+            let label = "⚠️ Warning: Website is " + txtx + "% unsafe to use.";
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("button2").style.display = "inline-block";
+        } else if (0 <= x && x < 0.50) {
+            let label = "✅ Website is " + txtx + "% safe to use.";
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("button1").style.display = "inline-block";
+        }
     </script>
-    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
-
 </html>
-

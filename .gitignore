@@ -35,8 +35,6 @@ Thumbs.db
 # PyInstaller
 *.spec
 
-# Data files (optional - if generated)
-phishing.csv
 
 # Compiled files
 *.o

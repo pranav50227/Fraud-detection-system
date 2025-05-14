@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 
 from feature import FeatureExtraction
 
-file = open("pickle/model.pkl","rb")
+file = open("pickle/model.pkl","rb") 
 gbc = pickle.load(file)
 file.close()
 
